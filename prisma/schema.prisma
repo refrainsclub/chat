@@ -2,25 +2,26 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-    provider = "prisma-client-js"
+  provider = "prisma-client-js"
 }
 
 datasource db {
-    provider = "postgresql"
-    url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 model Channel {
-    id        Int      @id @default(autoincrement())
-    name      String
-    messages  Message[]
+  id       Int       @id @default(autoincrement())
+  name     String
+  messages Message[]
 
-    @@index([name])
+  @@index([name])
 }
 
 model Message {
-    id Int @id @default(autoincrement())
-    channel Channel @relation(fields: [channelId], references: [id])
-    channelId Int
-    text String
+  id        Int     @id @default(autoincrement())
+  channel   Channel @relation(fields: [channelId], references: [id])
+  channelId Int
+  text      String
 }
