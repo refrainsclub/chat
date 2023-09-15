@@ -3,7 +3,7 @@ import { type AppType } from "next/app";
 import { api } from "~/utils/api";
 
 import "~/styles/globals.css";
-import { UserProvider } from "~/context/UserContext";
+import { UserProvider } from "~/hooks/useUser";
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (

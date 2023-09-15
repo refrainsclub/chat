@@ -1,7 +1,7 @@
 import { deleteCookie } from "cookies-next";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useUser } from "~/context/UserContext";
+import { useUser } from "~/hooks/useUser";
 import { api } from "~/utils/api";
 
 export default function Home() {

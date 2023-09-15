@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useUser } from "~/context/UserContext";
+import { useUser } from "~/hooks/useUser";
 
 export default function Test() {
   const { user } = useUser();
