@@ -9,7 +9,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     return res.status(400).json({ message: "Code not provided" });
   }
 
-  res.setHeader("Set-Cookie", `code=${code}; path=/; SameSite=Lax`);
+  res.setHeader("Set-Cookie", `code=${code}; path=/; SameSite=Strict; Secure`);
 
   res.redirect("/");
 }
