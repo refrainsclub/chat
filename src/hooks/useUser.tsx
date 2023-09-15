@@ -41,7 +41,8 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
   }, [getUser.data]);
 
   useEffect(() => {
-    setIsLoaded(!getUser.isFetching);
+    if (getUser.isFetching) return;
+    setIsLoaded(true);
   }, [getUser.isFetching]);
 
   return (
