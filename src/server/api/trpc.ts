@@ -24,7 +24,7 @@ import type { User } from "./routers/authRouter";
  */
 
 type CreateContextOptions = {
-  auth: User | undefined;
+  auth: User | null;
 };
 
 /**
