@@ -10,6 +10,5 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   }
 
   res.setHeader("Set-Cookie", `code=${code}; path=/; SameSite=Strict; Secure`);
-
   res.redirect("/");
 }
