@@ -1,9 +1,15 @@
-import { useUser } from "~/hooks/use-user";
+import SignedIn from "~/components/auth/signed-in";
+import SignedOut from "~/components/auth/signed-out";
 
 export default function Home() {
-  const { user } = useUser();
-
-  if (user) return <p>Hello {user.username}</p>;
-
-  return <p>You are signed out</p>;
+  return (
+    <>
+      <SignedIn>
+        <p>You are signed in!</p>
+      </SignedIn>
+      <SignedOut>
+        <p>You are signed out!</p>
+      </SignedOut>
+    </>
+  );
 }
