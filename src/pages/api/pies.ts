@@ -7,7 +7,9 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
 
   res.setHeader(
     "Set-Cookie",
-    `code=${code ?? "deleted"}; path=/; SameSite=Strict; Secure; HttpOnly`,
+    `code=${code ?? "deleted"}; path=/; SameSite=Strict; Secure; HttpOnly; ${
+      !code && "Expires=Thu, 01 Jan 1970 00:00:00 GMT"
+    }`,
   );
   res.redirect("/");
 }
