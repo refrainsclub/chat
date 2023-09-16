@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { env } from "~/env.mjs";
 import type { User, UserPayload } from "~/server/api/routers/authRouter";
+import crypto from "crypto";
 
 export async function getAuth(
   req: NextApiRequest,
@@ -29,5 +30,9 @@ export async function getAuth(
 
   const json = (await result.json()) as unknown;
   const { data } = json as UserPayload;
-  return data;
+  const emailHash = crypto
+    .createHash("md5")
+    .update(data?.email ?? "")
+    .digest("hex");
+  return { ...data, gravatar: `https://gravatar.com/avatar/${emailHash}` };
 }

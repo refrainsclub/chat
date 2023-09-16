@@ -45,6 +45,7 @@ export default function Header() {
             width={24}
             height={24}
             alt="Logo"
+            priority
           />
 
           <h1 className="font-semibold">PieChat</h1>

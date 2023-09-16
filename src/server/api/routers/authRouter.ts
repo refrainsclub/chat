@@ -16,6 +16,7 @@ export interface User {
   "2fa"?: string;
   admin?: boolean;
   verified?: boolean;
+  gravatar?: string; // extra
 }
 
 export interface AppInfoPayload {
