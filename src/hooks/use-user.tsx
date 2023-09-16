@@ -14,16 +14,12 @@ const UserContext = createContext<UserContext>({
 
 export function useUser(): UserContext {
   const context = useContext(UserContext);
-
-  if (!context) {
-    throw new Error("useUser must be used within a UserProvider");
-  }
-
+  if (!context) throw new Error("useUser must be used within a UserProvider");
   return context;
 }
 
 export function UserProvider({ children }: { children: React.ReactNode }) {
-  const getUser = api.auth.getUser.useQuery(undefined);
+  const getUser = api.auth.getUser.useQuery();
   const user = getUser.data;
   const isSignedIn = !!user;
 

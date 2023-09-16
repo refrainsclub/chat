@@ -5,10 +5,9 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     ? req.query.code[0]
     : req.query.code;
 
-  if (!code) {
-    return res.status(400).json({ message: "Code not provided" });
-  }
-
-  res.setHeader("Set-Cookie", `code=${code}; path=/; SameSite=Strict; Secure`);
+  res.setHeader(
+    "Set-Cookie",
+    `code=${code ?? "deleted"}; path=/; SameSite=Strict; Secure; HttpOnly`,
+  );
   res.redirect("/");
 }

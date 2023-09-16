@@ -18,23 +18,15 @@ import {
 import SignedIn from "./auth/signed-in";
 import SignedOut from "./auth/signed-out";
 import Link from "next/link";
-import { useRouter } from "next/router";
-import { deleteCookie } from "cookies-next";
 import { useUser } from "~/hooks/use-user";
 import { api } from "~/utils/api";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 
 export default function Header() {
-  const router = useRouter();
   const { user } = useUser();
   const appInfo = api.auth.getAppInfo.useQuery();
   const { theme, setTheme } = useTheme();
-
-  const handleSignOut = () => {
-    deleteCookie("code");
-    router.reload();
-  };
 
   return (
     <header className="sticky top-0 z-20 flex h-14 w-full items-center justify-between bg-background px-4 py-3">
@@ -101,7 +93,10 @@ export default function Header() {
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <button onClick={() => void handleSignOut()} className="w-full">
+                <button
+                  onClick={() => (window.location.href = "/api/pies?code=")}
+                  className="w-full"
+                >
                   <LogOutIcon size="16px" className="mr-2" />
                   Sign out
                 </button>
