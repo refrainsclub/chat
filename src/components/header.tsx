@@ -1,4 +1,11 @@
-import { LogInIcon, LogOutIcon, MenuIcon, UserIcon } from "lucide-react";
+import {
+  LogInIcon,
+  LogOutIcon,
+  MenuIcon,
+  Moon,
+  Sun,
+  UserIcon,
+} from "lucide-react";
 import { Button } from "./ui/button";
 import {
   DropdownMenu,
@@ -15,11 +22,13 @@ import { useRouter } from "next/router";
 import { deleteCookie } from "cookies-next";
 import { useUser } from "~/hooks/useUser";
 import { api } from "~/utils/api";
+import { useTheme } from "next-themes";
 
 export default function Header() {
   const router = useRouter();
   const { user } = useUser();
   const appInfo = api.auth.getAppInfo.useQuery();
+  const { theme, setTheme } = useTheme();
 
   const handleSignOut = () => {
     deleteCookie("code");
@@ -34,14 +43,17 @@ export default function Header() {
         </Link>
       </div>
       <div className="flex items-center justify-end gap-4 md:w-[200px]">
-        <div className="rounded-full bg-zinc-200 px-3 py-1 text-xs font-medium">
+        <div className="rounded-full bg-zinc-200 px-3 py-1 text-xs font-medium dark:bg-zinc-800">
           Public Beta
         </div>
 
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" className="h-8 w-8 rounded-full p-0">
-              <MenuIcon size="16px" className="text-zinc-500" />
+              <MenuIcon
+                size="16px"
+                className="text-zinc-500 dark:text-zinc-200"
+              />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent className="mr-4 w-56">
@@ -51,6 +63,19 @@ export default function Header() {
               </DropdownMenuLabel>
               <DropdownMenuSeparator />
             </SignedIn>
+            <DropdownMenuItem asChild>
+              <button
+                onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+                className="w-full"
+              >
+                {theme === "light" ? (
+                  <Moon size="16px" className="mr-2" />
+                ) : (
+                  <Sun size="16px" className="mr-2" />
+                )}{" "}
+                Toggle theme
+              </button>
+            </DropdownMenuItem>
             <SignedOut>
               <DropdownMenuItem asChild>
                 <Link href={appInfo.data?.auth_url ?? ""}>
