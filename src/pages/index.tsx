@@ -11,5 +11,5 @@ export default function Home() {
     return <p>Hello {user.username}</p>;
   }
 
-  return <p>Please sign in</p>;
+  return <p>You are signed out</p>;
 }

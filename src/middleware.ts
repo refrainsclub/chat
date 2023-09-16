@@ -1,11 +1,6 @@
 import { type NextRequest, NextResponse } from "next/server";
 
-const publicRoutes = [
-  "/",
-  "/api/pies",
-  "/api/trpc/auth.getAppInfo",
-  "/api/trpc/auth.getUser",
-];
+const publicRoutes = ["/"];
 
 export function middleware(request: NextRequest) {
   const code = request.cookies.get("code");
@@ -15,5 +10,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!.*\\..*|_next).*)", "/", "/(api|trpc)(.*)"],
+  matcher: "/((?!api|_next/static|_next/image|favicon.ico).*)",
 };

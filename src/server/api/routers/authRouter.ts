@@ -52,7 +52,7 @@ export enum Intent {
 
 export const authRouter = createTRPCRouter({
   getUser: publicProcedure.query(({ ctx }) => {
-    return ctx.auth;
+    return ctx.auth ?? {};
   }),
   getAppInfo: publicProcedure.query(async () => {
     const res = await fetch("https://api.pies.cf/app/info", {

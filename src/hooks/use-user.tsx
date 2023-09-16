@@ -25,8 +25,10 @@ export function useUser(): UserContext {
 }
 
 export function UserProvider({ children }: { children: React.ReactNode }) {
-  const getUser = api.auth.getUser.useQuery();
-  const user = getUser.data;
+  const getUser = api.auth.getUser.useQuery(undefined);
+  const data = getUser.data;
+  const dataLength = data !== undefined ? Object.keys(data).length : 0;
+  const user = dataLength ? data : undefined;
   const isLoaded = getUser.isFetched;
   const isSignedIn = !!user;
 
