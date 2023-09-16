@@ -4,11 +4,14 @@ import { api } from "~/utils/api";
 
 import "~/styles/globals.css";
 import { UserProvider } from "~/hooks/useUser";
+import Layout from "~/components/layout";
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (
     <UserProvider>
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </UserProvider>
   );
 };
