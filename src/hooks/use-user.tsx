@@ -1,5 +1,5 @@
 import { TRPC_ERROR_CODES_BY_KEY } from "@trpc/server/rpc";
-import { deleteCookie, getCookie, hasCookie } from "cookies-next";
+import { deleteCookie, getCookie } from "cookies-next";
 import React, { createContext, useContext, useEffect, useState } from "react";
 import type { User } from "~/server/api/routers/authRouter";
 import { api } from "~/utils/api";
