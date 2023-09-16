@@ -6,9 +6,9 @@ import {
   CardTitle,
 } from "~/components/ui/card";
 import { useUser } from "~/hooks/use-user";
-import UserAvatar from "./auth/user-avatar";
+import UserAvatar from "./user-avatar";
 
-export default function ProfileCard() {
+export default function UserCard() {
   const { user } = useUser();
 
   if (!user) {

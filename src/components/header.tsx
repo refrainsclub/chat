@@ -67,7 +67,7 @@ export default function Header() {
           <DropdownMenuContent className="mr-4 w-56">
             <SignedIn>
               <DropdownMenuLabel className="font-normal text-zinc-500">
-                @{user?.username}
+                {user?.username}
               </DropdownMenuLabel>
               <DropdownMenuSeparator />
             </SignedIn>

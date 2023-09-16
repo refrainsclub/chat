@@ -1,5 +1,5 @@
-import ProfileCard from "~/components/profile-card";
+import UserCard from "~/components/auth/user-card";
 
 export default function Profile() {
-  return <ProfileCard />;
+  return <UserCard />;
 }

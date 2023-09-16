@@ -8,7 +8,7 @@ export default function Home() {
   }
 
   if (user) {
-    return <p>Hello @{user.username}</p>;
+    return <p>Hello {user.username}</p>;
   }
 
   return <p>Please sign in</p>;
