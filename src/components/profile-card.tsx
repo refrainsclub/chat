@@ -19,8 +19,8 @@ export default function ProfileCard() {
 
   return (
     <Card>
-      <CardHeader className="flex flex-row gap-2.5">
-        <Avatar>
+      <CardHeader className="flex flex-row items-center gap-2.5">
+        <Avatar className="h-8 w-8">
           <AvatarImage
             src={`https://www.gravatar.com/avatar/${crypto
               .createHash("md5")
@@ -29,7 +29,7 @@ export default function ProfileCard() {
           />
           <AvatarFallback>{user.username?.substring(0, 2)}</AvatarFallback>
         </Avatar>
-        <CardTitle>{user.username}</CardTitle>
+        <CardTitle className="!my-0">{user.username}</CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col gap-6">
         <div>
