@@ -5,7 +5,6 @@ const publicRoutes = ["/"];
 export function middleware(request: NextRequest) {
   const code = request.cookies.get("code");
   const isPublic = publicRoutes.some((x) => request.nextUrl.pathname === x);
-
   if (!code && !isPublic) return NextResponse.redirect(request.nextUrl.origin);
 }
 

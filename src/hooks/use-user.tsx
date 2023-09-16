@@ -4,13 +4,11 @@ import { api } from "~/utils/api";
 
 interface UserContext {
   user?: User;
-  isLoaded: boolean;
   isSignedIn: boolean;
 }
 
 const UserContext = createContext<UserContext>({
   user: undefined,
-  isLoaded: false,
   isSignedIn: false,
 });
 
@@ -29,11 +27,10 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
   const data = getUser.data;
   const dataLength = data !== undefined ? Object.keys(data).length : 0;
   const user = dataLength ? data : undefined;
-  const isLoaded = getUser.isFetched;
   const isSignedIn = !!user;
 
   return (
-    <UserContext.Provider value={{ user, isLoaded, isSignedIn }}>
+    <UserContext.Provider value={{ user, isSignedIn }}>
       {children}
     </UserContext.Provider>
   );

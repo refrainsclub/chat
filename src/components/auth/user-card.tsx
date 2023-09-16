@@ -10,10 +10,7 @@ import UserAvatar from "./user-avatar";
 
 export default function UserCard() {
   const { user } = useUser();
-
-  if (!user) {
-    return null;
-  }
+  if (!user) return null;
 
   return (
     <Card>

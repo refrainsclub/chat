@@ -1,15 +1,9 @@
 import { useUser } from "~/hooks/use-user";
 
 export default function Home() {
-  const { user, isLoaded } = useUser();
+  const { user } = useUser();
 
-  if (!isLoaded) {
-    return null;
-  }
-
-  if (user) {
-    return <p>Hello {user.username}</p>;
-  }
+  if (user) return <p>Hello {user.username}</p>;
 
   return <p>You are signed out</p>;
 }
