@@ -7,6 +7,7 @@ import {
 } from "~/components/ui/card";
 import { useUser } from "~/hooks/use-user";
 import { Avatar, AvatarImage, AvatarFallback } from "../ui/avatar";
+import Image from "next/image";
 
 export default function UserCard() {
   const { user } = useUser();
@@ -16,7 +17,14 @@ export default function UserCard() {
     <Card>
       <CardHeader className="flex flex-row items-center gap-2.5">
         <Avatar>
-          <AvatarImage src={user.gravatar} />
+          <AvatarImage src={user.gravatar} asChild>
+            <Image
+              src={user.gravatar ?? ""}
+              alt="Profile picture"
+              width={40}
+              height={40}
+            />
+          </AvatarImage>
           <AvatarFallback>{user.username?.charAt(0)}</AvatarFallback>
         </Avatar>
         <CardTitle className="!my-0">{user.username}</CardTitle>

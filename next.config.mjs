@@ -18,7 +18,7 @@ const config = {
     defaultLocale: "en",
   },
   images: {
-    domains: ["pies.cf"],
+    domains: ["pies.cf", "gravatar.com"],
   },
 };
 
