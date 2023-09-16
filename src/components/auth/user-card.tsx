@@ -36,7 +36,7 @@ export default function UserCard() {
         </div>
       </CardContent>
       <CardFooter>
-        <p className="text-sm text-zinc-500 dark:text-zinc-300">
+        <p className="text-sm text-zinc-500 dark:text-zinc-400">
           ID: {user.id ?? "Unknown"}
         </p>
       </CardFooter>

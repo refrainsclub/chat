@@ -66,7 +66,7 @@ export default function Header() {
           </DropdownMenuTrigger>
           <DropdownMenuContent className="mr-4 w-56">
             <SignedIn>
-              <DropdownMenuLabel className="font-normal text-zinc-500">
+              <DropdownMenuLabel className="font-normal text-zinc-500 dark:text-zinc-400">
                 {user?.username}
               </DropdownMenuLabel>
               <DropdownMenuSeparator />
