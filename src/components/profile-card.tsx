@@ -46,7 +46,9 @@ export default function ProfileCard() {
         </div>
       </CardContent>
       <CardFooter>
-        <p className="text-sm text-zinc-500">ID: {user.id ?? "Unknown"}</p>
+        <p className="text-sm text-zinc-500 dark:text-zinc-300">
+          ID: {user.id ?? "Unknown"}
+        </p>
       </CardFooter>
     </Card>
   );
