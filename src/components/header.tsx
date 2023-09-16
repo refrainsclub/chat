@@ -37,7 +37,7 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-background sticky top-0 z-20 flex h-14 w-full items-center justify-between px-4 py-3">
+    <header className="sticky top-0 z-20 flex h-14 w-full items-center justify-between bg-background px-4 py-3">
       <div className="flex items-center gap-2 md:w-[200px]">
         <Link href="/" className="flex items-center gap-2">
           <Image

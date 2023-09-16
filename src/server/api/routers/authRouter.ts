@@ -1,5 +1,4 @@
 import { TRPCError } from "@trpc/server";
-import { z } from "zod";
 import { env } from "~/env.mjs";
 
 import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
@@ -52,23 +51,8 @@ export enum Intent {
 }
 
 export const authRouter = createTRPCRouter({
-  getUser: publicProcedure.input(z.string().min(1)).query(async ({ input }) => {
-    const res = await fetch(`https://api.pies.cf/account/info?code=${input}`, {
-      headers: {
-        Authorization: env.PIES_API_KEY,
-      },
-    });
-
-    if (!res.ok) {
-      throw new TRPCError({
-        code: "BAD_REQUEST",
-        message: "Could not get user",
-      });
-    }
-
-    const payload: UserPayload = (await res.json()) as UserPayload;
-
-    return payload.data;
+  getUser: publicProcedure.query(({ ctx }) => {
+    return ctx.auth;
   }),
   getAppInfo: publicProcedure.query(async () => {
     const res = await fetch("https://api.pies.cf/app/info", {
@@ -85,7 +69,6 @@ export const authRouter = createTRPCRouter({
     }
 
     const payload: AppInfoPayload = (await res.json()) as AppInfoPayload;
-
     return payload.data;
   }),
 });
