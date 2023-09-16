@@ -38,16 +38,18 @@ export default function Header() {
 
   return (
     <header className="bg-background sticky top-0 z-20 flex h-14 w-full items-center justify-between px-4 py-3">
-      <Link href="/" className="flex items-center gap-2 md:w-[200px]">
-        <Image
-          src="https://pies.cf/assets/pies.png"
-          width={24}
-          height={24}
-          alt="Logo"
-        />
+      <div className="flex items-center gap-2 md:w-[200px]">
+        <Link href="/" className="flex items-center gap-2">
+          <Image
+            src="https://pies.cf/assets/pies.png"
+            width={24}
+            height={24}
+            alt="Logo"
+          />
 
-        <h1 className="font-semibold">PieChat</h1>
-      </Link>
+          <h1 className="font-semibold">PieChat</h1>
+        </Link>
+      </div>
       <div className="flex items-center justify-end gap-4 md:w-[200px]">
         <div className="rounded-full bg-zinc-200 px-3 py-1 text-xs font-medium dark:bg-zinc-800">
           Public Beta
