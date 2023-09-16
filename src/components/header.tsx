@@ -29,7 +29,9 @@ export default function Header() {
   return (
     <header className="bg-background sticky top-0 z-20 flex h-14 w-full items-center justify-between px-4 py-3">
       <div className="flex items-center gap-2 md:w-[200px]">
-        <h1 className="font-bold">PieChat</h1>
+        <Link href="/">
+          <h1 className="font-bold">PieChat</h1>
+        </Link>
       </div>
       <div className="flex items-center justify-end gap-4 md:w-[200px]">
         <div className="rounded-full bg-zinc-200 px-3 py-1 text-xs font-medium">
@@ -59,9 +61,9 @@ export default function Header() {
             </SignedOut>
             <SignedIn>
               <DropdownMenuItem asChild>
-                <Link href="https://pies.cf/panel/account">
+                <Link href="/profile">
                   <UserIcon size="16px" className="mr-2" />
-                  Account
+                  Profile
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
