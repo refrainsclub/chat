@@ -20,7 +20,7 @@ import SignedOut from "./auth/signed-out";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { deleteCookie } from "cookies-next";
-import { useUser } from "~/hooks/useUser";
+import { useUser } from "~/hooks/use-user";
 import { api } from "~/utils/api";
 import { useTheme } from "next-themes";
 import Image from "next/image";

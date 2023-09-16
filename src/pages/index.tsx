@@ -1,4 +1,4 @@
-import { useUser } from "~/hooks/useUser";
+import { useUser } from "~/hooks/use-user";
 
 export default function Home() {
   const { user, isLoaded } = useUser();

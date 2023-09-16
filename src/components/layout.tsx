@@ -1,4 +1,4 @@
-import { UserProvider } from "~/hooks/useUser";
+import { UserProvider } from "~/hooks/use-user";
 import Header from "./header";
 import { ThemeProvider } from "next-themes";
 

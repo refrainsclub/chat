@@ -1,5 +1,3 @@
-import { AvatarImage } from "@radix-ui/react-avatar";
-import { Avatar, AvatarFallback } from "~/components/ui/avatar";
 import {
   Card,
   CardContent,
@@ -7,8 +5,8 @@ import {
   CardHeader,
   CardTitle,
 } from "~/components/ui/card";
-import crypto from "crypto";
-import { useUser } from "~/hooks/useUser";
+import { useUser } from "~/hooks/use-user";
+import UserAvatar from "./auth/user-avatar";
 
 export default function ProfileCard() {
   const { user } = useUser();
@@ -20,15 +18,7 @@ export default function ProfileCard() {
   return (
     <Card>
       <CardHeader className="flex flex-row items-center gap-2.5">
-        <Avatar className="h-8 w-8">
-          <AvatarImage
-            src={`https://www.gravatar.com/avatar/${crypto
-              .createHash("md5")
-              .update(user.email ?? "")
-              .digest("hex")}`}
-          />
-          <AvatarFallback>{user.username?.substring(0, 2)}</AvatarFallback>
-        </Avatar>
+        <UserAvatar />
         <CardTitle className="!my-0">{user.username}</CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col gap-6">
